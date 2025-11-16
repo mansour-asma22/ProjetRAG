@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\data",
+    "\\services",
+    "\\static",
+    "\\templates",
+    "\\utils"
+  ],
+  "SelectedNode": "\\services\\chatgpt_service.py",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,214 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Couleurs principales */
+    --bg-color: #fff;
+    --text-color: #2b2b2b;
+    --placeholder-color: #a6a6a6;
+    --chat-bg-light: #ffffff;
+    --chat-bg-dark: #eaeaea;
+    --button-bg: #4caf50;
+    --button-bg-hover: #45a049;
+    --border-color: #dedede;
+    /* Ombres */
+    --box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    --button-shadow: 0px 4px 10px rgba(76, 175, 80, 0.3);
+    /* Taille des images circulaires */
+    --image-size: 40px;
+}
+
+/* Corps global */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titre du Chatbot */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Conteneur principal de chat */
+/* Conteneur principal de chat */
+.chat-container {
+    width: 90%;
+    max-width: 800px;
+    height: 80vh; /* Hauteur fixe pour garantir un bon positionnement */
+    background: var(--chat-bg-light);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column; /* Structure verticale */
+    overflow: hidden; /* Contient les débordements */
+}
+
+/* Contenu défilable des messages */
+.chat-box {
+    flex: 1; /* Prend tout l'espace disponible entre le titre et la zone de saisie */
+    padding: 20px;
+    background: var(--bg-color);
+    overflow-y: auto; /* Barre de défilement si nécessaire */
+    scroll-behavior: smooth; /* Défilement fluide */
+    display: flex;
+    flex-direction: column; /* Messages empilés verticalement */
+    gap: 15px; /* Espacement entre messages */
+}
+
+/* Typing-container - Fixé en bas */
+.typing-container {
+    position: relative; /* Fixe à l'intérieur du parent */
+    background: var(--chat-bg-light);
+    border-top: 1px solid var(--border-color);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1; /* Toujours au-dessus des messages */
+}
+
+
+    /* Force les messages à s'empiler dans l'ordre naturel (du haut vers le bas) */
+    .chat-box > .chat:last-child {
+        margin-bottom: 0; /* Pas d'espace supplémentaire après le dernier message */
+    }
+
+
+    .chat-box::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .chat-box::-webkit-scrollbar-thumb {
+        background-color: var(--border-color);
+        border-radius: 4px;
+    }
+
+/* Messages */
+.chat {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: var(--box-shadow);
+}
+
+    .chat img {
+        width: var(--image-size);
+        height: var(--image-size);
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .chat.outgoing {
+        background: var(--chat-bg-light);
+        align-self: flex-end;
+    }
+
+    .chat.incoming {
+        background: var(--chat-bg-dark);
+    }
+
+
+
+    .typing-container .typing-textarea {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        background: var(--chat-bg-dark);
+        border: 1px solid var(--border-color);
+        border-radius: 25px;
+        padding: 10px 20px;
+    }
+
+.typing-textarea textarea {
+    width: 100%;
+    height: 30px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    resize: none;
+}
+
+    .typing-textarea textarea::placeholder {
+        color: var(--placeholder-color);
+    }
+
+/* Bouton Envoyer */
+.typing-container button {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--button-shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .typing-container button:hover {
+        background: var(--button-bg-hover);
+    }
+
+    .typing-container button:active {
+        transform: scale(0.95);
+    }
+
+/* Texte par défaut */
+.default-text {
+    text-align: center;
+    padding: 20px;
+    color: var(--placeholder-color);
+    font-size: 1rem;
+}
+
+/* Image de fond en bas à droite */
+.background-image {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 400px;
+    height: auto;
+    opacity: 0.8;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Reponsive Media Query */
+@media screen and (max-width: 600px) {
+    .chat {
+        font-size: 0.9rem;
+    }
+
+        .chat img {
+            width: 35px;
+            height: 35px;
+        }
+
+    .typing-container button {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}

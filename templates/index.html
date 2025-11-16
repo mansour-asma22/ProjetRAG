@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot AI</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Lien vers le CSS -->
+</head>
+<body>
+    <!-- Titre du chatbot -->
+    <h1>Chatbot AI</h1>
+
+    <!-- Conteneur principal du chat -->
+    <div class="chat-container" id="chat-container">
+        <!-- Zone où les messages du chat s'affichent -->
+        <div class="chat-box" id="chat-box">
+            <!-- Les messages seront injectés ici dynamiquement -->
+        </div>
+
+        <!-- Zone de saisie et d'envoi -->
+        <div class="typing-container">
+            <div class="typing-textarea">
+                <textarea id="user-input" placeholder="Pose ta question ici..."></textarea>
+            </div>
+            <button id="send-btn">Envoyer</button>
+        </div>
+    </div>
+
+    <!-- Image de fond -->
+    <div class="background-image">
+        <img src="/static/robot.jpg" alt="Background" style="width: 400px; height: auto; opacity: 0.8;">
+    </div>
+
+    <!-- Script associé -->
+    <script src="/static/script.js"></script> <!-- Chemin correct pour le script -->
+</body>
+</html>
